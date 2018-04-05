@@ -1,0 +1,14 @@
+name: kredit
+root: ~/Projects/alto/js/kredit
+
+startup_window: tests
+
+windows:
+  - git:
+      layout: even-horizontal
+      panes:
+        - git status
+        - git diff
+  - console: coffee
+  - tests: npm run test
+  - bash:
