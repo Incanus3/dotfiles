@@ -123,6 +123,7 @@ export NVM_DIR="/home/jakub/.nvm"
 export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:/home/jakub/.npm-global/lib/node_modules
 
 source ~/.tmuxinator.bash
+source ~/.bash_python_argcomplete
 
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
@@ -145,3 +146,5 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 base16_atelier-seaside
+
+source <(kubectl completion bash)

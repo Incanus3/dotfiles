@@ -23,9 +23,9 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-colorscheme base16-default-dark
-colorscheme base16-atelier-forest
-colorscheme base16-atelier-dune
+" colorscheme base16-default-dark
+" colorscheme base16-atelier-forest
+" colorscheme base16-atelier-dune
 
 " NERDTree
 map <silent> <C-n> :NERDTreeToggle<CR>
@@ -81,7 +81,7 @@ set display+=lastline
 set grepprg=ack
 
 " set search matches highlighting color
-hi Search ctermbg=13
+" hi Search ctermbg=13
 
 " use C-d as delete in insert mode
 inoremap <C-d> <Del>
@@ -116,9 +116,6 @@ autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 " use ,n to hide search results
 map <leader>n :nohl<cr>
-
-" use <space><char> to insert single character from normal mode
-nmap <Space> i_<Esc>r
 
 set textwidth=100
 " see :h fo-table, add a to reformat paragraph after every change
@@ -171,15 +168,6 @@ set winheight=3
 set winminheight=3
 set winheight=999
 
-" seeing is believing
-nmap <buffer> <F5> <Plug>(seeing-is-believing-run)
-xmap <buffer> <F5> <Plug>(seeing-is-believing-run)
-imap <buffer> <F5> <Plug>(seeing-is-believing-run)
-
-nmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
-xmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
-imap <buffer> <F4> <Plug>(seeing-is-believing-mark)
-
 " http://vim.wikia.com/wiki/View_all_colors_available_to_gvim
 hi VertSplit    term=bold cterm=bold gui=bold ctermbg=8
 " hi StatusLineNC term=bold cterm=bold gui=bold ctermbg=8 ctermfg=2
@@ -211,3 +199,12 @@ let g:VimuxOrientation = "h"
 let g:VimuxPromptString = "> "
 
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" let g:ycm_python_binary_path = '/home/jakub/.pyenv/versions/3.7.0/bin/python3.7'
+let g:ycm_python_binary_path = 'python'
+let g:ycm_complete_in_comments = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_filepath_completion_use_working_dir = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+set cmdheight=2
