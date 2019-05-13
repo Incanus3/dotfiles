@@ -1,7 +1,7 @@
 # ~/.tmuxinator/danube.yml
 
 name: datastore-objednavky
-root: ~/Projects/alto/python/django/datastore-objednavky
+root: ~/Projects/alto/python/datastore-objednavky
 
 # Optional tmux socket
 # socket_name: foo

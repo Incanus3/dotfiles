@@ -1,7 +1,7 @@
-# ~/.tmuxinator/datastore-rezervace.yml
+# ~/.tmuxinator/danube.yml
 
-name: ds-rezervace
-root: ~/Projects/alto/python/tornado/datastore-rezervace
+name: datastore-rezervace-novy
+root: ~/Projects/alto/python/datastore-rezervace-novy
 
 # Optional tmux socket
 # socket_name: foo
@@ -10,7 +10,7 @@ root: ~/Projects/alto/python/tornado/datastore-rezervace
 # pre: sudo /etc/rc.d/mysqld start
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: datastore-rezervace
+pre_window: datastore-rezervace-novy
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -25,7 +25,7 @@ startup_window: tests
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t datastore-rezervace
+# post: tmux -CC attach -t danube
 
 windows:
   - git:
@@ -33,7 +33,11 @@ windows:
       panes:
         - git status
         - git diff
-  - server:  ./run.py
-  - console: bpython
-  - tests:   python3 -m tornado.testing tests/**/*_test.py
+  - server:
+      layout: even-horizontal
+      panes:
+        - ./manage.py runserver
+        - DJANGO_ENV=test ./manage.py runserver 127.0.0.1:9000
+  - console: ./manage.py shell_plus
+  - tests: ./manage.py test
   - bash:

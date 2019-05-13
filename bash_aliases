@@ -12,6 +12,9 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias g='git'
+source /usr/share/bash-completion/completions/git
+__git_complete g __git_main
+
 alias man="LANG='en_US.UTF-8' man"
 alias rdc='rdesktop -k en -g 1800x1000'
 alias tree='tree -I "*~"'
@@ -40,16 +43,18 @@ alias kredit='cd ~/Projects/alto/js/kredit'
 alias bakare='cd ~/Projects/alto/js/bakare'
 alias orm='cd ~/Projects/alto/js/alto-orm'
 
-alias eet='pyenv activate django3.6 && cd ~/Projects/alto/python/django/eet'
-alias danube='pyenv activate django3.6 && cd ~/Projects/alto/python/django/datastore_danube'
-alias datastore-bakare='pyenv activate django3.6 && cd ~/Projects/alto/python/django/datastore-bakare'
-alias datastore-kredit='pyenv activate django3.6 && cd ~/Projects/alto/python/django/datastore-kredit'
-alias datastore-canteen='pyenv activate django3.6 && cd ~/Projects/alto/python/django/datastore-canteen'
-alias datastore-rezervace='pyenv activate django3.6 && cd ~/Projects/alto/python/django/datastore-rezervace'
-alias foodie-api='pyenv activate kasa3.6 && cd ~/Projects/alto/python/kasa/foodie-api'
+alias eet='cd ~/Projects/alto/python/eet'
+alias danube='cd ~/Projects/alto/python/datastore_danube'
+alias datastore-bakare='cd ~/Projects/alto/python/datastore-bakare'
+alias datastore-kredit='cd ~/Projects/alto/python/datastore-kredit'
+alias datastore-canteen='cd ~/Projects/alto/python/datastore-canteen'
+alias datastore-rezervace='cd ~/Projects/alto/python/datastore-rezervace'
 
 alias datastore-food='pyenv activate tornado3.6 && cd ~/Projects/alto/python/tornado/datastore-food'
 alias datastore-rezervace-old='pyenv activate tornado3.6 && cd ~/Projects/alto/python/tornado/datastore-rezervace'
 alias datastore-common='pyenv activate tornado3.6 && cd ~/Projects/alto/python/tornado/datastore-common/datastore_common'
 alias tornado-utils='pyenv activate tornado3.6 && cd ~/Projects/alto/python/tornado/alto-tornado-utils/alto_tornado_utils'
 alias globus-bonus-backend='pyenv activate tornado3.6 && cd ~/Projects/alto/python/tornado/globus-bonus-backend'
+
+alias foodie-backend='cd ~/Projects/alto/foodie/backend'
+alias foodie-frontend='cd ~/Projects/alto/foodie/frontend'

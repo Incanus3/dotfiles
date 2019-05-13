@@ -1,7 +1,6 @@
 name: kredit
 root: ~/Projects/alto/js/kredit
-
-startup_window: tests
+pre_window: nvm use
 
 windows:
   - git:
@@ -9,6 +8,8 @@ windows:
       panes:
         - git status
         - git diff
-  - console: coffee
-  - tests: npm run test
+  - server:  npm run install-dependencies && npm run start-with-deps
+  - console: coffee -r test/register.js
+  - tests: npm run tests
   - bash:
+  - deps: cd ../alto-react-kredit

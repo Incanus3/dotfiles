@@ -1,7 +1,7 @@
 # ~/.tmuxinator/danube.yml
 
 name: datastore-bakare
-root: ~/Projects/alto/python/django/datastore-bakare
+root: ~/Projects/alto/python/datastore-bakare
 
 # Optional tmux socket
 # socket_name: foo

@@ -1,6 +1,7 @@
-name: datastore-kredit
-root: ~/Projects/alto/python/datastore-kredit
+name: foodie-api
+root: ~/Projects/alto/python/kasa/foodie-api
 
+pre_window: foodie-api
 startup_window: tests
 
 windows:
@@ -12,9 +13,8 @@ windows:
   - server:
       layout: even-horizontal
       panes:
-        - ./manage.py runserver
-        - DJANGO_ENV=test ./manage.py runserver 127.0.0.1:9000
+        - ./manage.py runserver 127.0.0.1:8003
+        - DJANGO_ENV=test ./manage.py runserver 127.0.0.1:9003
   - console: ./manage.py shell_plus
   - tests: pytest
   - bash:
-  - deps: cd ../alto-django-kredit

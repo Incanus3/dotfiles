@@ -1,7 +1,7 @@
 # ~/.tmuxinator/danube.yml
 
 name: datastore-rezervace-novy
-root: ~/Projects/alto/python/django/datastore-rezervace-novy
+root: ~/Projects/alto/python/datastore-rezervace-novy
 
 # Optional tmux socket
 # socket_name: foo

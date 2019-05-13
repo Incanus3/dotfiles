@@ -1,28 +1,40 @@
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
+call plug#begin('~/.vim/bundle')
 
-" needed for % to jump begin/def/class <-> end, etc.
-runtime macros/matchit.vim
-runtime plugin/powerline.vim
+Plug 'benmills/vimux'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'janko-m/vim-test'
+Plug 'junegunn/fzf.vim'
+Plug 'vim-vdebug/vdebug'
+Plug 'godlygeek/tabular'
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'pgdouyon/vim-evanesco'
+Plug 'airblade/vim-gitgutter'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-scripts/zim-syntax'
+Plug 'mkarmona/colorsbox'
+Plug 'chriskempson/base16-vim'
+Plug 'jpo/vim-railscasts-theme'
+Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-set laststatus=2
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+call plug#end()
 
-execute pathogen#infect()
-"let g:EasyMotion_leader_key = '<Leader>'
-
-" use 256 colors
-set t_Co=256
-" if has('gui_running')
-"   colorscheme desert
+" if filereadable(expand("~/.vimrc_background"))
+"   let base16colorspace=256
+"   source ~/.vimrc_background
 " endif
 
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-
+set t_Co=256
+set background=dark
+colorscheme railscasts
 " colorscheme base16-default-dark
 " colorscheme base16-atelier-forest
 " colorscheme base16-atelier-dune
@@ -32,8 +44,39 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.bst$','\.dia$','\.eps$','\.pdf$','\~$','\.pyc$','^__pycache__$']
 
 set number
-set relativenumber
+" set relativenumber
+
+set hlsearch
+set cursorline
+set grepprg=ack
+set scrolloff=3
+set laststatus=2
+set textwidth=100
 set backupcopy=yes
+set sidescrolloff=3
+set display+=lastline
+set listchars=tab:▸\ ,eol:¬
+set formatoptions=tcrqj " see :h fo-table
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+set undodir=~/.vim/undodir
+set undofile
+
+set foldmethod=syntax
+set foldlevel=1
+set nofoldenable
+
+set splitbelow
+set splitright
+
+set completeopt=menu,longest,preview
+set wildmode=longest,list:longest
+set wildignore+=.git*,coverage/**,tmp/**,**~
+
+set winwidth=100
+set winheight=3
+set winminheight=3
+set winheight=999
 
 " filetype associations
 au BufRead,BufNewFile *.txt    set filetype=zim
@@ -43,7 +86,6 @@ au BufRead,BufNewFile *.tex    set filetype=tex
 au BufRead,BufNewFile *.scheme set filetype=scheme
 au BufRead,BufNewFile *.god    set filetype=ruby
 au BufRead,BufNewFile *.em     set filetype=emblem
-au BufRead,BufNewFile *.py     set textwidth=100 tabstop=2 softtabstop=2 shiftwidth=2 foldmethod=indent
 au FileType sh set noexpandtab
 
 " map , (reverse of ;) to \
@@ -53,9 +95,6 @@ let mapleader=','
 
 " toggle visibility of nonprintable characters
 map <Leader>h :set list!<CR>
-
-" visual symbols for nonprintable characters
-set listchars=tab:▸\ ,eol:¬
 
 " strip trailing whitespace when saving file
 function! <SID>StripTrailingWhitespaces()
@@ -72,22 +111,8 @@ endfunction
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-" always show at least 5 lines around cursor
-set scrolloff=3
-set sidescrolloff=3
-set display+=lastline
-
-" use ack as grep program
-set grepprg=ack
-
-" set search matches highlighting color
-" hi Search ctermbg=13
-
 " use C-d as delete in insert mode
 inoremap <C-d> <Del>
-
-" for compatibility with fish shell
-set shell=/bin/bash
 
 " RSpec.vim mappings
 " map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -117,15 +142,6 @@ autocmd BufReadPost quickfix nnoremap <CR> <CR>
 " use ,n to hide search results
 map <leader>n :nohl<cr>
 
-set textwidth=100
-" see :h fo-table, add a to reformat paragraph after every change
-" (:set formatoptions+=a)
-set formatoptions=tcrqj
-" set formatprg=par\ -w100r
-
-" highlight current line
-set cursorline
-
 " use ,, to switch btw. alternate files
 " this is slow, because easymotion has mapping starting with ,,
 map <Leader><Leader> <C-^>
@@ -133,19 +149,8 @@ map <Leader><Leader> <C-^>
 " use <leader>t to tabularize by =
 nnoremap <Leader>t :Tabularize /=<cr>
 
-set wildignore+=.git*,coverage/**,tmp/**,**~
-
 " command-t buffer window
 nnoremap <silent> <leader>b :CommandTBuffer<cr>
-
-" code folding options
-set foldmethod=syntax
-set foldlevel=1
-set nofoldenable
-
-" open new splits right and below
-set splitbelow
-set splitright
 
 " use ctrl + hjkl to move between splits
 nnoremap <C-J> <C-W><C-J>
@@ -153,33 +158,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" complete with tab, only to longest match
-" imap <Tab> <C-P>
-set completeopt=menu,longest,preview
-
-" completion in command
-set wildmode=longest,list:longest
-
 " reindent whole file (make mark, jump to bof, = to eof, back to mark)
 map <leader>i mmgg=G`m
-
-set winwidth=100
-set winheight=3
-set winminheight=3
-set winheight=999
-
-" http://vim.wikia.com/wiki/View_all_colors_available_to_gvim
-hi VertSplit    term=bold cterm=bold gui=bold ctermbg=8
-" hi StatusLineNC term=bold cterm=bold gui=bold ctermbg=8 ctermfg=2
-" hi StatusLine   term=bold cterm=bold gui=bold ctermbg=2 ctermfg=8
-
-set fillchars=""
-set hlsearch
-
-" nnoremap <leader>bd :ProjectRootExe !npm run build-dev<cr>
-" nnoremap <leader>bt :ProjectRootExe !npm run build-test<cr>
-" nnoremap <leader>tt :ProjectRootExe !npm run test %<cr>
-" nnoremap <leader>ta :ProjectRootExe !npm run test<cr>
 
 nnoremap <leader>bd :call VimuxRunCommand("npm run build-dev")<cr>
 nnoremap <leader>bt :call VimuxRunCommand("npm run build-test")<cr>
@@ -198,13 +178,21 @@ let g:VimuxHeight = "50"
 let g:VimuxOrientation = "h"
 let g:VimuxPromptString = "> "
 
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-" let g:ycm_python_binary_path = '/home/jakub/.pyenv/versions/3.7.0/bin/python3.7'
-let g:ycm_python_binary_path = 'python'
+" " let g:ycm_python_binary_path = '/home/jakub/.pyenv/versions/3.7.0/bin/python3.7'
+" let g:ycm_python_binary_path = 'python'
 let g:ycm_complete_in_comments = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_semantic_triggers = { 'elm' : ['.'] }
 
-set cmdheight=2
+let g:elm_format_autosave = 1
+
+let test#strategy      = 'dispatch'
+let test#python#runner = 'pytest'
+
+map <Leader>f :Files<CR>
+map <leader>p :Files ..<cr>
+map <leader>b :Buffers<cr>

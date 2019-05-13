@@ -1,7 +1,7 @@
 # ~/.tmuxinator/eet.yml
 
 name: eet
-root: ~/Projects/alto/python/django/eet
+root: ~/Projects/alto/python/eet
 
 # Optional tmux socket
 # socket_name: foo
@@ -35,5 +35,5 @@ windows:
         - git diff
   - server:  ./manage.py runserver
   - console: ./manage.py shell_plus
-  - tests:   ./manage.py test
+  - tests:   pytest
   - bash:

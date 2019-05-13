@@ -1,5 +1,5 @@
-name: datastore-kredit
-root: ~/Projects/alto/python/datastore-kredit
+name: datastore-canteen
+root: ~/Projects/alto/python/datastore-canteen
 
 startup_window: tests
 
@@ -12,9 +12,9 @@ windows:
   - server:
       layout: even-horizontal
       panes:
-        - ./manage.py runserver
-        - DJANGO_ENV=test ./manage.py runserver 127.0.0.1:9000
+        - ./manage.py runserver 127.0.0.1:8001
+        - DJANGO_ENV=test ./manage.py runserver 127.0.0.1:9001
   - console: ./manage.py shell_plus
   - tests: pytest
   - bash:
-  - deps: cd ../alto-django-kredit
+  - deps: cd ../alto-django-canteen

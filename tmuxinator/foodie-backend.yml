@@ -1,0 +1,18 @@
+name: foodie-backend
+root: ~/Projects/alto/foodie/backend
+
+startup_window: tests
+
+windows:
+  - git:
+      layout: even-horizontal
+      panes:
+        - git status
+        - git diff
+  - server:
+      layout: even-horizontal
+      panes:
+        -    load-dotenv .env.fulldb && ./manage.py runserver
+  - console: load-dotenv .env.fulldb && ./manage.py shell_plus
+  - tests:   load-dotenv .env.test   && pytest
+  - bash:
