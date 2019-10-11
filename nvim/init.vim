@@ -83,6 +83,10 @@ set winwidth=65
 set winminheight=3
 set winminwidth=65
 
+let g:loaded_python_provider = 0 " disable python2
+let g:python3_host_prog = '/home/jakub/.pyenv/versions/3.7.3/bin/python3.7'
+let g:ruby_host_prog = '/home/jakub/.rbenv/versions/2.6.2/bin/neovim-ruby-host'
+
 " maximize window after entering
 autocmd WinEnter * wincmd _
 " autocmd WinEnter * wincmd |
@@ -100,6 +104,7 @@ au BufRead,BufNewFile *.tex    set filetype=tex
 au BufRead,BufNewFile *.scheme set filetype=scheme
 au BufRead,BufNewFile *.god    set filetype=ruby
 au BufRead,BufNewFile *.em     set filetype=emblem
+au BufRead,BufNewFile *.py     set textwidth=100 tabstop=2 softtabstop=2 shiftwidth=2 foldmethod=indent expandtab
 " au FileType sh set noexpandtab
 
 " map , (reverse of ;) to \
@@ -183,7 +188,6 @@ let g:UltiSnipsExpandTrigger="<c-space>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetsDir="~/.vim/snippets"
 
-let g:python3_host_prog = '/home/jakub/.pyenv/versions/3.7.3/bin/python3.7'
 " let g:deoplete#enable_at_startup = 1
 
 " autocmd InsertLeave * if pumvisible() == 0 | pclose | endif

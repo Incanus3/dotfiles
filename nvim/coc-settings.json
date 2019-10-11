@@ -1,21 +1,11 @@
 {
-  "python.jediEnabled":                      false,
-  "python.linting.pylintEnabled":            true,
-  "python.linting.pylintUseMinimalCheckers": false,
-  "python.linting.mypyEnabled":              true,
-  "python.linting.pylintArgs": [
-    "--indent-string='  '",
-    "--disable=missing-docstring,bad-continuation,bad-whitespace,wrong-import-order,no-else-return,too-few-public-methods",
-    "--const-rgx=[A-Za-z_][A-Za-z0-9_]{2,30}$",
-    "--load-plugins", "pylint_django"
-  ],
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.errorSign":        "⛔",
+  "diagnostic.warningSign":      "⚠",
+  "diagnostic.infoSign":         "ℹ",
+  "diagnostic.hintSign":         "💬",
 
-  "diagnostic.checkCurrentLine":             true,
-  "diagnostic.errorSign":                    "⛔",
-  "diagnostic.warningSign":                  "⚠",
-  "diagnostic.infoSign":                     "ℹ",
-  "diagnostic.hintSign":                     "💬",
-  "suggest.enablePreview":                   true,
+  "suggest.enablePreview":       true,
 
   "suggest.completionItemKindLabels": {
     "keyword":       "\uf1de",
@@ -45,6 +35,36 @@
     "default":       "\uf29c"
   },
 
+  "python.jediEnabled":                      false,
+
+  "python.linting.banditEnabled":            true,
+  "python.linting.mypyEnabled":              true,
+  "python.linting.flake8Enabled":            true,
+  "python.linting.pylintEnabled":            true,
+  "python.linting.pylintUseMinimalCheckers": false,
+  "python.linting.prospectorEnabled":        false,
+
+  "python.linting.flake8Args": [
+    "--max-complexity=10",
+    "--max-line-length=100",
+    "--ignore=E111,E114,E117,E121,E126,E127,E128,E129,E201,E202,E203,E221,E222,E241,E251,E261,E271,E272,E302,E303,E305,E401,E701,E704,W503,W504"
+  ],
+
+  "python.linting.pylintArgs": [
+    "--indent-string='  '",
+    "--disable=missing-docstring,bad-continuation,bad-whitespace,wrong-import-order,multiple-imports,multiple-statements,no-else-return,too-few-public-methods",
+    "--const-rgx=[A-Za-z_][A-Za-z0-9_]{2,30}$",
+    "--load-plugins", "pylint_django"
+  ],
+
+  "python.linting.prospectorArgs": [
+    "-t", "dodgy",
+    "-t", "pyroma",
+    "-t", "mccabe",
+    // "-t", "vulture", // doesn't seem to work with coc-python
+    "-s", "veryhigh"
+  ],
+
   "languageserver": {
     "bash": {
       "command":          "bash-language-server",
@@ -57,6 +77,12 @@
       "command":   "docker-langserver",
       "filetypes": ["Dockerfile"],
       "args":      ["--stdio"]
+    },
+
+    "crystal": {
+      "command":   "scry",
+      "filetypes": ["crystal"],
+      "args":      []
     },
 
     // "python": {
