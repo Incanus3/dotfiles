@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.local/nvim/bundle')
 
 Plug 'benmills/vimux'
 Plug 'mileszs/ack.vim'
@@ -18,12 +18,14 @@ Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/zim-syntax'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'machakann/vim-highlightedyank'
 
 " Plug 'chriskempson/base16-vim'
 " if filereadable(expand("~/.vimrc_background"))
@@ -86,6 +88,7 @@ set winminwidth=65
 let g:loaded_python_provider = 0 " disable python2
 let g:python3_host_prog = '/home/jakub/.pyenv/versions/3.7.3/bin/python3.7'
 let g:ruby_host_prog = '/home/jakub/.rbenv/versions/2.6.2/bin/neovim-ruby-host'
+let g:highlightedyank_highlight_duration = 300
 
 " maximize window after entering
 autocmd WinEnter * wincmd _
@@ -215,8 +218,10 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
+nmap <Leader>s :YcmCompleter GetType<CR>
 nmap <leader>si :CocCommand python.setInterpreter<cr>
-nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd :YcmCompleter GoTo<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -325,9 +330,9 @@ autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 " let g:ycm_filepath_completion_use_working_dir = 1
 " let g:ycm_autoclose_preview_window_after_insertion = 1
 " let g:ycm_semantic_triggers = { 'elm' : ['.'] }
+" let g:enable_ycm_at_startup=0
+let g:ycm_auto_trigger=0
 
 " use ,g to jump to tag
 " map <Leader>g <c-]>
 " set tags+=gems.tags
-" nmap <Leader>g :YcmCompleter GoTo<CR>
-" nmap <Leader>s :YcmCompleter GetType<CR>
