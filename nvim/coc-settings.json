@@ -47,7 +47,7 @@
   "python.linting.flake8Args": [
     "--max-complexity=6",
     "--max-line-length=100",
-    "--ignore=E111,E114,E117,E121,E126,E127,E128,E129,E201,E202,E203,E221,E222,E231,E241,E251,E261,E271,E272,E302,E303,E305,E401,E701,E704,W503,W504"
+    "--ignore=E111,E114,E117,E121,E126,E127,E128,E129,E201,E202,E203,E221,E222,E231,E241,E251,E261,E271,E272,E302,E303,E305,E401,E501,E701,E704,E712,E722,F401,F841,W503,W504"
   ],
 
   "python.linting.pylintArgs": [
@@ -55,6 +55,10 @@
     "--disable=missing-docstring,bad-continuation,bad-whitespace,wrong-import-order,multiple-imports,multiple-statements,no-else-return,too-few-public-methods",
     "--const-rgx=[A-Za-z_][A-Za-z0-9_]{2,30}$",
     "--load-plugins", "pylint_django"
+  ],
+
+  "python.linting.banditArgs": [
+    "--skip", "B101"
   ],
 
   "python.linting.prospectorArgs": [
