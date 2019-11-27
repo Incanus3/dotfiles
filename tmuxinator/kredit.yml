@@ -8,7 +8,7 @@ windows:
       panes:
         - git status
         - git diff
-  - server:  npm run install-dependencies && npm run start-with-deps
+  - server:  yarn start-local
   - console: coffee -r test/register.js
   - tests: npm run tests
   - bash:
