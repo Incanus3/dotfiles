@@ -1,31 +1,41 @@
 call plug#begin('~/.local/nvim/bundle')
 
+Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
-Plug 'mileszs/ack.vim'
+Plug 'christoomey/vim-sort-motion'
+Plug 'honza/vim-snippets'
 Plug 'janko-m/vim-test'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-function'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-user'
+Plug 'majutsushi/tagbar'
+Plug 'machakann/vim-highlightedyank'
+Plug 'mileszs/ack.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
-Plug 'airblade/vim-gitgutter'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/zim-syntax'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'itchyny/lightline.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'machakann/vim-highlightedyank'
+" Plug 'xolox/vim-easytags'
+
+if $TERM != "linux"
+  Plug 'itchyny/lightline.vim'
+  Plug 'drewtempelmeyer/palenight.vim'
+endif
 
 " Plug 'chriskempson/base16-vim'
 " if filereadable(expand("~/.vimrc_background"))
@@ -37,8 +47,6 @@ call plug#end()
 
 " set t_Co=256
 " set termguicolors
-set background=dark
-colorscheme palenight
 
 set hlsearch
 set incsearch
@@ -46,20 +54,18 @@ set ignorecase
 set smartcase
 
 set number
-set mouse=a
-set clipboard=unnamed
+" set mouse=a
 set grepprg=ack
 set scrolloff=3
+set clipboard=unnamed
+set background=dark
 set laststatus=2
-set noshowmode
-set cursorline
 set textwidth=100
 set updatetime=100
 set signcolumn=yes
 set backupcopy=no
 set sidescrolloff=3
 set display+=lastline
-set listchars=tab:▸\ ,eol:¬
 set formatoptions=tcrqj " see :h fo-table
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
@@ -74,6 +80,7 @@ set splitbelow
 set splitright
 
 set completeopt=menu,longest,preview
+
 set wildmode=longest,list:longest
 set wildignore+=.git/**,coverage/**,tmp/**,**~
 
@@ -85,10 +92,19 @@ set winwidth=65
 set winminheight=3
 set winminwidth=65
 
+if $TERM != "linux"
+  set noshowmode
+  set cursorline
+  set listchars=tab:▸\ ,eol:¬
+
+  colorscheme palenight
+endif
+
 let g:loaded_python_provider = 0 " disable python2
-let g:python3_host_prog = '/home/jakub/.pyenv/versions/3.7.3/bin/python3.7'
+let g:python3_host_prog = '/home/jakub/.pyenv/versions/3.7.7/envs/nvim3.7/bin/python'
 let g:ruby_host_prog = '/home/jakub/.rbenv/versions/2.6.2/bin/neovim-ruby-host'
 let g:highlightedyank_highlight_duration = 300
+let g:sort_motion_flags = "ui"
 
 " maximize window after entering
 autocmd WinEnter * wincmd _
@@ -241,6 +257,9 @@ endfunction
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>ref <Plug>(coc-refactor)
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -248,18 +267,16 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
+
 " Create mappings for function text object, requires document symbols feature of languageserver.
 xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <C-d> <Plug>(coc-range-select)
-xmap <silent> <C-d> <Plug>(coc-range-select)
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" nmap <leader>ref <Plug>(coc-refactor)
+" nmap <silent> <C-d> <Plug>(coc-range-select)
+" xmap <silent> <C-d> <Plug>(coc-range-select)
+nmap <leader>cf <Plug>(coc-float-hide)
 
 " Using CocList
 " Show all diagnostics
@@ -311,15 +328,15 @@ autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 " nnoremap <leader>ta :call VimuxRunCommand("npm run tests")<cr>
 " nnoremap <leader>tp :call VimuxRunCommand("pyenv activate django3.6 && ./manage.py test")<cr>
 
-" map <Leader>vp :VimuxPromptCommand<CR>
-" map <Leader>vl :VimuxRunLastCommand<CR>
-" map <Leader>vi :VimuxInspectRunner<CR>
-" map <Leader>vq :VimuxCloseRunner<CR>
-" map <Leader>vz :VimuxZoomRunner<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vz :VimuxZoomRunner<CR>
 
-" let g:VimuxHeight = "50"
-" let g:VimuxOrientation = "h"
-" let g:VimuxPromptString = "> "
+let g:VimuxHeight = "50"
+let g:VimuxOrientation = "h"
+let g:VimuxPromptString = "> "
 
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
@@ -331,8 +348,12 @@ autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 " let g:ycm_autoclose_preview_window_after_insertion = 1
 " let g:ycm_semantic_triggers = { 'elm' : ['.'] }
 " let g:enable_ycm_at_startup=0
-let g:ycm_auto_trigger=0
+let g:ycm_auto_trigger = 0
+
+let g:rustfmt_autosave = 1
 
 " use ,g to jump to tag
 " map <Leader>g <c-]>
 " set tags+=gems.tags
+
+let $FZF_DEFAULT_COMMAND = 'fd --type f'
