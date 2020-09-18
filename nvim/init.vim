@@ -12,10 +12,12 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
+Plug 'kshenoy/vim-signature'
 Plug 'majutsushi/tagbar'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -116,14 +118,15 @@ autocmd WinEnter * wincmd _
 " set winbl=10
 
 " filetype associations
-au BufRead,BufNewFile *.txt    set filetype=zim
-au BufRead,BufNewFile *.md     set filetype=markdown
-au BufRead,BufNewFile *.asd    set filetype=lisp
-au BufRead,BufNewFile *.tex    set filetype=tex
-au BufRead,BufNewFile *.scheme set filetype=scheme
-au BufRead,BufNewFile *.god    set filetype=ruby
-au BufRead,BufNewFile *.em     set filetype=emblem
-au BufRead,BufNewFile *.py     set textwidth=100 tabstop=2 softtabstop=2 shiftwidth=2 foldmethod=indent expandtab
+au BufRead,BufNewFile *.txt          set filetype=zim
+au BufRead,BufNewFile *.md           set filetype=markdown
+au BufRead,BufNewFile *.asd          set filetype=lisp
+au BufRead,BufNewFile *.tex          set filetype=tex
+au BufRead,BufNewFile *.scheme       set filetype=scheme
+au BufRead,BufNewFile *.god          set filetype=ruby
+au BufRead,BufNewFile *.em           set filetype=emblem
+au BufRead,BufNewFile *.py           set textwidth=100 tabstop=2 softtabstop=2 shiftwidth=2 foldmethod=indent expandtab
+au BufRead,BufNewFile */foodie/*.py  set textwidth=100 tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=indent noexpandtab
 " au FileType sh set noexpandtab
 
 " map , (reverse of ;) to \
@@ -188,6 +191,8 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 let g:elm_format_autosave = 1
+" disable dispatch mappings, as they conflict with vim-signature
+let g:dispatch_no_maps = 1
 
 let test#strategy      = 'dispatch'
 let test#python#runner = 'pytest'
@@ -199,6 +204,7 @@ map <leader>b :Buffers<cr>
 " NERDTree
 map <silent> <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeIgnore = ['\.bst$','\.dia$','\.eps$','\.pdf$','\~$','\.pyc$','^__pycache__$']
+let g:NERDTreeWinSize = 50
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeStatusline = ''
 
@@ -340,7 +346,7 @@ let g:VimuxPromptString = "> "
 
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-" " let g:ycm_python_binary_path = '/home/jakub/.pyenv/versions/3.7.0/bin/python3.7'
+let g:ycm_python_binary_path = '/home/jakub/.pyenv/versions/ycm3.8/bin/python'
 " let g:ycm_python_binary_path = 'python'
 " let g:ycm_complete_in_comments = 1
 " let g:ycm_seed_identifiers_with_syntax = 1
