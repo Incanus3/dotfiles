@@ -3,6 +3,7 @@ call plug#begin('~/.local/nvim/bundle')
 Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-sort-motion'
+Plug 'easymotion/vim-easymotion'
 Plug 'honza/vim-snippets'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -16,6 +17,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'majutsushi/tagbar'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mileszs/ack.vim'
+Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -171,7 +173,7 @@ map <leader>n :nohl<cr>
 
 " use ,, to switch btw. alternate files
 " this is slow, because easymotion has mapping starting with ,,
-map <Leader><Leader> <C-^>
+" map <Leader><Leader> <C-^>
 
 " use ctrl + hjkl to move between splits
 nnoremap <C-J> <C-W><C-J>
@@ -183,7 +185,7 @@ nmap <M-k> kzz
 nmap <M-j> jzz
 
 " reindent whole file (make mark, jump to bof, = to eof, back to mark)
-map <leader>i mmgg=G`m
+map <leader>i mmgg=G`mmm
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -361,5 +363,26 @@ let g:rustfmt_autosave = 1
 " use ,g to jump to tag
 " map <Leader>g <c-]>
 " set tags+=gems.tags
+
+""" EasyMotion configuration
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" search in all windows
+nmap <leader>s <Plug>(easymotion-overwin-f)
+
+" replace default search by EM one
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+" keep cursor column when JK motion
+let g:EasyMotion_startofline = 0
 
 let $FZF_DEFAULT_COMMAND = 'fd --type f'
