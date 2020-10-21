@@ -4,6 +4,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-sort-motion'
 Plug 'easymotion/vim-easymotion'
+Plug 'frazrepo/vim-rainbow'
 Plug 'honza/vim-snippets'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -369,20 +370,25 @@ let g:rustfmt_autosave = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
+" jump to word
+map <Leader>w <Plug>(easymotion-w)
+
 " search in all windows
 nmap <leader>s <Plug>(easymotion-overwin-f)
 
 " replace default search by EM one
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+" map  n <Plug>(easymotion-next)
+" map  N <Plug>(easymotion-prev)
 
 " keep cursor column when JK motion
 let g:EasyMotion_startofline = 0
+
+let g:rainbow_active = 1
 
 let $FZF_DEFAULT_COMMAND = 'fd --type f'
