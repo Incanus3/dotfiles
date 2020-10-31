@@ -35,6 +35,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/zim-syntax'
+Plug 'wellle/targets.vim'
 " Plug 'xolox/vim-easytags'
 
 if $TERM != "linux"
