@@ -1,6 +1,7 @@
 call plug#begin('~/.local/nvim/bundle')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'AndrewRadev/switch.vim'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-sort-motion'
 Plug 'easymotion/vim-easymotion'
@@ -14,6 +15,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
+Plug 'kassio/neoterm'
 Plug 'kshenoy/vim-signature'
 Plug 'majutsushi/tagbar'
 Plug 'machakann/vim-highlightedyank'
@@ -159,6 +161,9 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " use C-d as delete in insert mode
 inoremap <C-d> <Del>
 
+" use ESC to exit terminal
+:tnoremap <Esc> <C-\><C-n>
+
 " %% in command expands to current dir
 cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
 
@@ -193,6 +198,15 @@ map <leader>i mmgg=G`mmm
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+let g:neoterm_default_mod = 'vertical'
+let g:neoterm_repl_ruby = 'pry'
+
+nmap <leader>ts <Plug>(neoterm-repl-send)
+xmap <leader>ts <Plug>(neoterm-repl-send)
+nmap <leader>tl <Plug>(neoterm-repl-send-line)
+
+nmap <leader>sw :Switch<cr>
 
 let g:elm_format_autosave = 1
 " disable dispatch mappings, as they conflict with vim-signature
