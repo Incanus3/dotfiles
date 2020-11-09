@@ -8,6 +8,9 @@ let mapleader=','
 
 """ NORMAL + VISUAL + OPERATOR PENDING MODES """
 
+" make Y behave consistently with D and C
+noremap Y y$
+
 " toggle visibility of nonprintable characters
 map <Leader>h :set list!<CR>
 
@@ -70,14 +73,16 @@ map <Leader>w <Plug>(easymotion-w)
 " use enter in normal mode to insert newline
 nnoremap <CR> o<Esc>k
 
-" show documentation for word under cursor
-nnoremap <silent> K :call ShowDocumentation()<CR>
-
 " use ctrl + hjkl to move between splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+nnoremap <silent> <Up>    :cprevious<CR>
+nnoremap <silent> <Down>  :cnext<CR>
+nnoremap <silent> <Left>  :cpfile<CR>
+nnoremap <silent> <Right> :cnfile<CR>
 
 " always use \v mode for search - don't need to escape all special chars
 nnoremap / /\v
@@ -87,10 +92,16 @@ vnoremap / /\v
 nmap <M-k> kzz
 nmap <M-j> jzz
 
+" show documentation for word under cursor
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
+
+" edit file in current directory
+nnoremap <leader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
 
 " search in all windows
 nmap <leader>s <Plug>(easymotion-overwin-f)

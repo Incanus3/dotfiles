@@ -24,6 +24,7 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'ryvnf/readline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'

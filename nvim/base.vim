@@ -22,9 +22,10 @@ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set undodir=~/.vim/undodir
 set undofile
 
+set foldenable
+set foldopen-=block
 set foldmethod=syntax
 set foldlevelstart=3
-set foldenable
 
 set splitbelow
 set splitright
