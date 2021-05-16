@@ -27,6 +27,9 @@ map <Leader>f :Files<CR>
 map <leader>p :Files ..<cr>
 map <leader>b :Buffers<cr>
 
+" tagbar
+map <leader>tb :TagbarToggle<cr>
+
 " NERDTree
 map <silent> <C-n> :NERDTreeToggle<CR>
 
@@ -101,7 +104,7 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 " edit file in current directory
-nnoremap <leader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
+nnoremap <leader>e :edit <C-R>=fnameescape(expand('%:h')) . '/'<CR>
 
 " search in all windows
 nmap <leader>s <Plug>(easymotion-overwin-f)

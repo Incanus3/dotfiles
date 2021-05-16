@@ -47,16 +47,11 @@ if $TERM != "linux"
   set noshowmode
   set cursorline
   set listchars=tab:▸\ ,eol:¬
-
-  colorscheme palenight
-  " colorscheme atelier-forest
-  " colorscheme eighties
-  " colorscheme material-darker
-  " colorscheme onedark
-  " colorscheme spacemacs
-  " colorscheme summerfruit
 endif
 
+" set t_8b=^[[48;2;%lu;%lu;%lum
+" set t_8f=^[[38;2;%lu;%lu;%lum
+set guifont=Caskaydia\ Cove\ Nerd\ Font\ Complete\ Mono:h13
 " set t_Co=256
 " enable true color support - v terminalu vypada hrozne
 " set termguicolors

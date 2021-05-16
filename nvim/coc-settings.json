@@ -35,19 +35,18 @@
     "default":       "\uf29c"
   },
 
-  "python.jediEnabled":                      false,
-
   "python.linting.banditEnabled":            true,
   "python.linting.mypyEnabled":              true,
   "python.linting.flake8Enabled":            true,
-  "python.linting.pylintEnabled":            true,
+  "python.linting.pylintEnabled":            false,
   "python.linting.pylintUseMinimalCheckers": false,
-  "python.linting.prospectorEnabled":        false,
+  "python.linting.prospectorEnabled":        true,
 
+  // E101 and W191 should only be disabled in foodie
   "python.linting.flake8Args": [
     "--max-complexity=6",
     "--max-line-length=100",
-    "--ignore=E111,E114,E117,E121,E126,E127,E128,E129,E201,E202,E203,E221,E222,E231,E241,E251,E261,E271,E272,E302,E303,E305,E401,E501,E701,E704,E712,E722,E731,F401,F402,F841,W503,W504"
+    "--ignore=E101,E111,E114,E117,E121,E126,E127,E128,E129,E201,E202,E203,E221,E222,E231,E241,E251,E261,E271,E272,E302,E303,E305,E401,E501,E701,E704,E712,E722,E731,F401,F402,F811,F841,W191,W503,W504"
   ],
 
   "python.linting.pylintArgs": [
@@ -58,7 +57,7 @@
   ],
 
   "python.linting.banditArgs": [
-    "--skip", "B101"
+    "--skip", "B101,B322"
   ],
 
   "python.linting.prospectorArgs": [
@@ -68,6 +67,10 @@
     // "-t", "vulture", // doesn't seem to work with coc-python
     "-s", "veryhigh"
   ],
+
+  "codeLens.enable": true,
+  "javascript.referencesCodeLens.enable": false,
+  "typescript.referencesCodeLens.enable": false,
 
   "languageserver": {
     "bash": {
@@ -88,6 +91,16 @@
       "filetypes": ["crystal"],
       "args":      []
     },
+
+    "kotlin": {
+      "command": "kotlin-language-server",
+      "filetypes": ["kotlin"]
+    },
+
+    "elixirLS": {
+      "command": "/usr/lib/elixir-ls/language_server.sh",
+      "filetypes": ["elixir", "eelixir"]
+    }
 
     // "python": {
     //   "command": "python",
