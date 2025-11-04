@@ -1,0 +1,15 @@
+name: sudoku-server
+root: ~/Projects/ruby/sudoku-server
+
+startup_window: watchers
+
+windows:
+  - git:
+      layout: even-horizontal
+      panes:
+        - git status
+        - git diff
+  - server: rerun --no-notify -- bundle exec falcon serve -b http://localhost:9292 -n 1
+  - guard: bundle exec guard
+  - console: pry -I lib
+  - bash: tree -I coverage

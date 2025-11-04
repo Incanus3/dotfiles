@@ -1,0 +1,61 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "Jakub Kaláb"
+email = "jakubkalab@gmail.com"
+
+[ui]
+editor = "nvim"
+default-command = ["log"]
+diff-formatter = ["delta", "$left", "$right"]
+# pager = "delta"
+# diff-formatter = ":git"
+bookmark-list-sort-keys = ["committer-date-"]
+
+[ui.movement]
+edit = true
+
+[revsets]
+# log = "around_bookmarks()"
+# log = "trunk_diversion()"
+log = "interesting_diversion()"
+
+[templates]
+bookmark_list = "bookmark_nice()"
+
+[aliases]
+gp = ["git", "push"]
+gf = ["git", "fetch"]
+ll = ["log", "-T", "builtin_log_compact_full_description"]
+
+# see https://jj-vcs.github.io/jj/latest/revsets/#functions
+# and https://jj-vcs.github.io/jj/latest/github/#useful-revsets
+[revset-aliases]
+'around_bookmarks()' = 'ancestors(@ | descendants(interesting_bookmarks()), 5)'
+'bookmark_diversion()' = 'fork_point(interesting_bookmarks())::interesting_bookmarks()'
+
+'trunk_diversion()' = 'latest_common_with_trunk()::@ | latest_common_with_trunk()::trunk()'
+'latest_common_with_trunk()' = 'fork_point(@ | trunk())'
+
+'interesting_diversion()' = 'fork_point(interesting_stuff())::interesting_stuff()'
+'interesting_stuff()' = 'descendants(@) | trunk() | interesting_bookmarks()'
+'interesting_bookmarks()' = 'bookmarks() | tracked_remote_bookmarks()'
+
+[template-aliases]
+# Full timestamp in ISO 8601 format
+# 'format_timestamp(timestamp)' = 'timestamp'
+# Relative timestamp rendered as "x days/hours/seconds ago"
+'format_timestamp(timestamp)' = 'timestamp.ago()'
+'format_short_id(id)' = 'id.shortest(3)'
+'format_short_signature(signature)' = 'signature.email().local()'
+'bookmark_nice()' = 'pad_end(15, self.normal_target().committer().timestamp().ago()) ++ " " ++ pad_end(15, self.normal_target().committer().name()) ++ " " ++ self.name() ++ "\n"'
+'bookmark_name_only()' = 'self.name() ++ "\n"'
+
+[git]
+push-new-bookmarks = true
+
+[fsmonitor]
+backend = "watchman"
+
+[fsmonitor.watchman]
+register-snapshot-trigger = true

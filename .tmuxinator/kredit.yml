@@ -1,0 +1,15 @@
+name: kredit
+root: ~/Projects/alto/js/kredit
+# pre_window: nvm use
+
+windows:
+  - git:
+      layout: even-horizontal
+      panes:
+        - git status
+        - git diff
+  - server:  yarn start-local
+  - console: yarn exec coffee -r test/register.js
+  - tests: yarn run cypress open
+  - bash:
+  - deps: cd ../alto-react-kredit

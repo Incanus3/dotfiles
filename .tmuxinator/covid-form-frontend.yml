@@ -1,0 +1,17 @@
+name: covid-form-frontend
+root: ~/Projects/spital/covid-form-frontend
+
+startup_window: tests
+
+windows:
+  - git:
+      layout: even-horizontal
+      panes:
+        - git status
+        - git diff
+  - server:
+      layout: even-horizontal
+      panes:
+        - yarn start
+  - tests: yarn run cypress open
+  - bash:

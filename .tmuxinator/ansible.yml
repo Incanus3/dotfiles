@@ -1,0 +1,24 @@
+# ~/.tmuxinator/ansible.yml
+
+name: ansible
+root: ~/Projects/alto/ansible
+
+startup_window: ansible
+
+windows:
+  - git:
+      layout: even-horizontal
+      panes:
+        - git status
+        - git diff
+  - vagrant:
+      layout: even-horizontal
+      panes:
+        - vagrant status
+        - vagrant status
+  - ansible:
+      layout: even-horizontal
+      panes:
+        - ansible --list-hosts all
+        - ansible --ask-vault-pass -a 'free -m' all
+  - bash:

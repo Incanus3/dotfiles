@@ -1,0 +1,16 @@
+name: datastore-canteen
+root: ~/Projects/alto/python/datastore-canteen
+
+startup_window: tests
+
+windows:
+  - git:
+      layout: even-horizontal
+      panes:
+        - git status
+        - git diff
+  - server:  poetry run ./manage.py runserver 127.0.0.1:8001
+  - console: poetry run ./manage.py shell_plus
+  - tests:   poetry run ptw
+  - bash:
+  - deps: cd ../alto-django-canteen

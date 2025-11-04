@@ -1,0 +1,12 @@
+name: qwazar
+root: ~/Projects/sentica/qwazar
+# pre_window: nvm use
+
+windows:
+  - git:
+      layout: even-horizontal
+      panes:
+        - git status
+        - git diff
+  - backend:
+  - frontend: cd frontend && yarn && yarn start

@@ -1,0 +1,15 @@
+name: covid-form-backend
+root: ~/Projects/spital/covid-form-backend
+
+startup_window: watchers
+
+windows:
+  - git:
+      layout: even-horizontal
+      panes:
+        - git status
+        - git diff
+  - server: rerun --no-notify -- bundle exec rackup -p 9292
+  - guard: bundle exec guard
+  - console: pry -I .
+  - bash: tree -I coverage
