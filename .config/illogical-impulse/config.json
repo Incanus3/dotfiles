@@ -106,7 +106,7 @@
                 "enable": true
             }
         },
-        "borderless": false,
+        "borderless": true,
         "bottom": true,
         "cornerStyle": 2,
         "floatStyleShadow": true,
@@ -123,7 +123,8 @@
             "swapWarningThreshold": 85
         },
         "screenList": [
-            "HDMI-A-1"
+            "HDMI-A-1",
+            "DP-2"
         ],
         "showBackground": true,
         "topLeftIcon": "spark",
@@ -140,7 +141,7 @@
             "showDarkModeToggle": true,
             "showKeyboardToggle": true,
             "showMicToggle": false,
-            "showPerformanceProfileToggle": false,
+            "showPerformanceProfileToggle": true,
             "showScreenRecord": false,
             "showScreenSnip": true
         },

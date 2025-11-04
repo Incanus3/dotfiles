@@ -1,3 +1,4 @@
+set scrolloff=3
 set showmode
 set showcmd
 set commentary
