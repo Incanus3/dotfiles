@@ -22,6 +22,7 @@ let sources = [
   .config/zellij
   .config/hypr
   .config/kitty
+  .config/ghostty
   .config/nushell
   .config/starship.toml
   .config/environment.d
