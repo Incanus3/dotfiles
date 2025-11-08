@@ -6,17 +6,25 @@ function fish_prompt -d "Write out the prompt"
         (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
 end
 
+function switch-branch
+  set --local branch (jj bookmark l -a -T 'name ++ "\n"' | fzf)
+  jj bookmark track $branch@origin
+  jj new $branch
+end
+
 if status is-interactive # Commands to run in interactive sessions can go here
     # No greeting
     set fish_greeting
 
-    # Use starship
+    fzf --fish | source
     starship init fish | source
+
+    source /etc/grc.fish
 
     # Aliases
     alias pamcan pacman
-    alias ls 'eza --icons'
     alias clear "printf '\033[2J\033[3J\033[1;1H'"
     alias q 'qs -c ii'
+    alias ls 'eza --icons'
     alias cat bat
 end
