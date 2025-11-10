@@ -21,10 +21,13 @@ if status is-interactive # Commands to run in interactive sessions can go here
 
     source /etc/grc.fish
 
+    fish_add_path -g ~/.local/bin
+
     # Aliases
     alias pamcan pacman
     alias clear "printf '\033[2J\033[3J\033[1;1H'"
     alias q 'qs -c ii'
     alias ls 'eza --icons'
     alias cat bat
+    alias man batman
 end

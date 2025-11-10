@@ -14,25 +14,28 @@ let sources = [
   .tmuxinator
   .config/jj
   .config/mc
+  .config/bat
+  .config/zed
   .config/nvim
   .config/btop
   .config/htop
   .config/fish
-  .config/zed
-  .config/zellij
   .config/hypr
   .config/kitty
+  .config/zellij
   .config/ghostty
   .config/nushell
-  .config/starship.toml
-  .config/environment.d
-  .config/kdeglobals
-  .config/konsolerc
-  .config/dolphinrc
+  .config/lazygit
   .config/breezerc
   .config/darklyrc
+  .config/konsolerc
+  .config/dolphinrc
   .config/yakuakerc
+  .config/kdeglobals
+  .config/television
+  .config/environment.d
   .config/illogical-impulse
+  .config/starship.toml
   .config/code-flags.conf
   .config/chrome-flags.conf
   .config/chromium-flags.conf
