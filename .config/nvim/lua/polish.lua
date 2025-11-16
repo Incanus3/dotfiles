@@ -4,3 +4,6 @@
 
 vim.opt.completeopt = { "menu", "longest", "preview" }
 vim.opt.wildmode = { "longest", "list:longest" }
+
+vim.keymap.set("i", "<cr>", ':call augment#Accept("\n")<cr>', { noremap = true })
+vim.keymap.set("i", "<c-space>", ":call augment#Accept()<cr>", { noremap = true })

@@ -26,6 +26,7 @@ bookmark_list = "bookmark_nice()"
 [aliases]
 gp = ["git", "push"]
 gf = ["git", "fetch"]
+bm = ["bookmark", "move"]
 ll = ["log", "-T", "builtin_log_compact_full_description"]
 
 # see https://jj-vcs.github.io/jj/latest/revsets/#functions

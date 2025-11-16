@@ -138,9 +138,9 @@
         },
         "utilButtons": {
             "showColorPicker": false,
-            "showDarkModeToggle": true,
-            "showKeyboardToggle": true,
-            "showMicToggle": false,
+            "showDarkModeToggle": false,
+            "showKeyboardToggle": false,
+            "showMicToggle": true,
             "showPerformanceProfileToggle": true,
             "showScreenRecord": false,
             "showScreenSnip": true
@@ -149,7 +149,7 @@
         "vertical": false,
         "weather": {
             "city": "",
-            "enable": false,
+            "enable": true,
             "enableGPS": true,
             "fetchInterval": 10,
             "useUSCS": false
@@ -184,7 +184,7 @@
     },
     "conflictKiller": {
         "autoKillNotificationDaemons": false,
-        "autoKillTrays": false
+        "autoKillTrays": true
     },
     "crosshair": {
         "code": "0;P;d;1;0l;10;0o;2;1b;0"
