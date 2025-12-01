@@ -17,7 +17,6 @@ let sources = [
   .config/bat
   .config/zed
   .config/nvim
-  .config/btop
   .config/htop
   .config/fish
   .config/hypr
