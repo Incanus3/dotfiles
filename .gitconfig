@@ -32,34 +32,33 @@
   conflictstyle = zdiff3
 [pull]
   ff = only
-[commit]
-  ; gpgsign = true
+; [commit]
+;   gpgsign = true
 [checkout]
   defaultRemote = origin
 [core]
-  ; pager = less -MRFX
   pager = delta
   excludesFile = ~/.gitignore
+[init]
+  defaultBranch = main
+[protocol "file"]
+  allow = always
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[rerere]
+  enabled = true
+[rebase]
+  instructionFormat = (%an) %s
+[trailer "changeid"]
+  key = Change-Id
+[color]
+  ui = auto
 [interactive]
   diffFilter = delta --color-only
 [delta]
   navigate = true  # use n and N to move between diff sections
   dark = true      # or light = true, or omit for auto-detection
   line-numbers = true
-[init]
-	defaultBranch = main
-[protocol "file"]
-	allow = always
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[rerere]
-	enabled = true
-[rebase]
-	instructionFormat = (%an) %s
-[trailer "changeid"]
-	key = Change-Id
-[color]
-	ui = auto

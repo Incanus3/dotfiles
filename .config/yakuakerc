@@ -1,8 +1,17 @@
 [Appearance]
 HideSkinBorders=true
 
+[Desktop Entry]
+DefaultProfile=Profile 1.profile
+
 [Dialogs]
 FirstRun=false
+
+[Shortcuts]
+next-session=Shift+Right; Ctrl+PgDown
+next-terminal=Ctrl+Tab;\s
+previous-session=Shift+Left; Ctrl+PgUp
+previous-terminal=Ctrl+Shift+Tab;\s
 
 [Window]
 Height=100

@@ -1,11 +1,11 @@
-# if [ -x /usr/bin/dircolors ]; then
-# 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-# 	alias ls='ls -F --color=auto'
-# 	alias grep='grep --color=auto'
-# 	alias fgrep='fgrep --color=auto'
-# 	alias egrep='egrep --color=auto'
-# 	alias diff='diff --color=auto'
-# fi
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls -F --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+	alias diff='diff --color=auto'
+fi
 
 alias ls='eza -F'
 alias cat=bat
@@ -33,8 +33,5 @@ alias man="LANG='en_US.UTF-8' man"
 alias rdc='rdesktop -k en -g 1800x1000'
 alias tree='tree -I "*~"'
 alias mux='tmuxinator'
-alias md='mdcat'
-alias pwgen='pwgen -ny 15 1'
+
 alias qwazar='zellij --layout qwazar'
-alias mplayer-fb='mplayer2 -vo fbdev -fs -xy 1600 -zoom'
-alias mutt-gmail='mutt -f imaps://jakubkalab@gmail.com@imap.gmail.com:993'

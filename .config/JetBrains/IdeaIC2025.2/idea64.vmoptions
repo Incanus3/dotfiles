@@ -1,2 +1,3 @@
 -Xmx4096m
 -Dawt.toolkit.name=WLToolkit
+-Dsun.java2d.vulkan=True

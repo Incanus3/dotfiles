@@ -17,6 +17,7 @@ let sources = [
   .config/bat
   .config/zed
   .config/nvim
+  .config/btop
   .config/htop
   .config/fish
   .config/hypr
@@ -48,14 +49,19 @@ for $it in $sources {
   let source_path = ('~/' + $it) | path expand
   let dest_path = $'($dest_dir)/($it)'
 
-  print $"cp -ru ($source_path) ($dest_path)"
-  rm -rf $dest_path
-  mkdir (dirname $dest_path)
-  cp -ru $source_path $dest_path
+  if ($source_path | path exists) {
+    print $"cp -ru ($source_path) ($dest_path)"
+    rm -rf $dest_path
+    mkdir (dirname $dest_path)
+    cp -ru $source_path $dest_path
+  }
 }
-
-cp $self_path $'($dest_dir)/'
 
 rm -rf $'($dest_dir)/.config/nushell/history.txt'
 rm -rf $'($dest_dir)/.config/nvim/.git'
 rm -rf $'($dest_dir)/.config/nvim/.jj'
+rm -rf $'($dest_dir)/.config/hypr/*.old'
+rm -rf $'($dest_dir)/.config/hypr/*.new'
+
+cp $self_path $'($dest_dir)/'
+

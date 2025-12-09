@@ -8,8 +8,6 @@ email = "jakubkalab@gmail.com"
 editor = "nvim"
 default-command = ["log"]
 diff-formatter = ["delta", "$left", "$right"]
-# pager = "delta"
-# diff-formatter = ":git"
 bookmark-list-sort-keys = ["committer-date-"]
 
 [ui.movement]
@@ -35,7 +33,7 @@ ll = ["log", "-T", "builtin_log_compact_full_description"]
 'around_bookmarks()' = 'ancestors(@ | descendants(interesting_bookmarks()), 5)'
 'bookmark_diversion()' = 'fork_point(interesting_bookmarks())::interesting_bookmarks()'
 
-'trunk_diversion()' = 'latest_common_with_trunk()::@ | latest_common_with_trunk()::trunk()'
+'trunk_diversion()' = 'latest_common_with_trunk()::(@::) | latest_common_with_trunk()::trunk()'
 'latest_common_with_trunk()' = 'fork_point(@ | trunk())'
 
 'interesting_diversion()' = 'fork_point(interesting_stuff())::interesting_stuff()'
@@ -48,7 +46,8 @@ ll = ["log", "-T", "builtin_log_compact_full_description"]
 # Relative timestamp rendered as "x days/hours/seconds ago"
 'format_timestamp(timestamp)' = 'timestamp.ago()'
 'format_short_id(id)' = 'id.shortest(3)'
-'format_short_signature(signature)' = 'signature.email().local()'
+# 'format_short_signature(signature)' = 'signature.email().local()'
+'format_short_signature(signature)' = 'signature.name()'
 'bookmark_nice()' = 'pad_end(15, self.normal_target().committer().timestamp().ago()) ++ " " ++ pad_end(15, self.normal_target().committer().name()) ++ " " ++ self.name() ++ "\n"'
 'bookmark_name_only()' = 'self.name() ++ "\n"'
 
