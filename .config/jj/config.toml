@@ -52,8 +52,8 @@ ll = ["log", "-T", "builtin_log_compact_full_description"]
 'bookmark_nice()' = 'pad_end(15, self.normal_target().committer().timestamp().ago()) ++ " " ++ pad_end(15, self.normal_target().committer().name()) ++ " " ++ self.name() ++ "\n"'
 'bookmark_name_only()' = 'self.name() ++ "\n"'
 
-[git]
-push-new-bookmarks = true
+# [git]
+# push-new-bookmarks = true
 
 [fsmonitor]
 backend = "watchman"

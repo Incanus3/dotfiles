@@ -52,6 +52,7 @@
     },
     "apps": {
         "bluetooth": "kcmshell6 kcm_bluetooth",
+        "manageUser": "kcmshell6 kcm_users",
         "network": "ghostty -c nmtui",
         "networkEthernet": "kcmshell6 kcm_networkmanagement",
         "taskManager": "plasma-systemmonitor --page-name Processes",
@@ -525,6 +526,7 @@
         },
         "tweaks": {
             "smootherMenuAnimations": true,
+            "smootherSearchBar": true,
             "switchHandlePositionFix": true
         }
     },

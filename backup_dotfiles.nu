@@ -30,7 +30,6 @@ let sources = [
   .config/konsolerc
   .config/dolphinrc
   .config/yakuakerc
-  .config/kdeglobals
   .config/television
   .config/environment.d
   .config/illogical-impulse
