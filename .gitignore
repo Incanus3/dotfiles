@@ -1,1 +1,3 @@
+*.old
+*.new
 .config/illogical-impulse/installed_listfile
