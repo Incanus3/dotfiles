@@ -32,7 +32,8 @@ let sources = [
   .config/yakuakerc
   .config/television
   .config/environment.d
-  .config/illogical-impulse
+  # .config/illogical-impulse
+  .config/DankMaterialShell
   .config/starship.toml
   .config/code-flags.conf
   .config/chrome-flags.conf
