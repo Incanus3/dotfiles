@@ -25,5 +25,3 @@ source=monitors.conf
 bindd = SUPER ALT, D, Speech-to-text, exec, /usr/lib/hyprwhspr/config/hyprland/hyprwhspr-tray.sh record
 
 source = ./dms/cursor.conf
-
-source = ./dms/outputs.conf
