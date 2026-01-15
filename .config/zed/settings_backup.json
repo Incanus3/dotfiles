@@ -1,0 +1,75 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent": {
+    "default_model": {
+      "provider": "openai",
+      "model": "gpt-5.2-codex"
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "auto_indent_on_paste": true,
+  "icon_theme": "Zed (Default)",
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "base_keymap": "JetBrains",
+  "vim_mode": true,
+  "vim": {
+    "use_smartcase_find": true
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 18.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Ayu Dark"
+  },
+  "tabs": {
+    "git_status": true,
+    "file_icons": true,
+    "show_diagnostics": "errors"
+  },
+  "search": {
+    "enabled": true,
+    "use_regex": false,
+    "case_sensitive": false
+  },
+  "show_whitespaces": "selection",
+  "use_smartcase_search": true,
+  "remove_trailing_whitespace_on_save": true,
+  "seed_search_query_from_cursor": "selection",
+  "preview_tabs": {
+    "enabled": false
+  },
+  "buffer_font_family": "CaskaydiaCove Nerd Font Mono",
+  // "buffer_font_family": "Source Code Pro"
+  // "buffer_font_weight": 350
+  // "terminal": {
+  //   "font_family": "CaskaydiaCove Nerd Font Mono"
+  // }
+  "languages": {
+    "Elixir": {
+      "language_servers": [
+        "!expert",
+        "elixir-ls",
+        "!next-ls",
+        "!lexical",
+        "tailwindcss-language-server"
+      ]
+    },
+    "HEEX": {
+      "language_servers": ["elixir-ls", "tailwindcss-language-server"]
+    }
+    // "kotlin": {
+    //   "language_servers": ["kotlin-language-server"]
+    // }
+  }
+}

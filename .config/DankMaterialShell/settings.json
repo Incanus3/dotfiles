@@ -58,6 +58,7 @@
   "controlCenterShowMicPercent": false,
   "controlCenterShowBatteryIcon": false,
   "controlCenterShowPrinterIcon": false,
+  "controlCenterShowScreenSharingIcon": true,
   "showPrivacyButton": true,
   "privacyShowMicIcon": false,
   "privacyShowCameraIcon": false,
@@ -71,7 +72,8 @@
     {
       "id": "brightnessSlider",
       "enabled": true,
-      "width": 50
+      "width": 50,
+      "deviceName": "ddc:i2c-3"
     },
     {
       "id": "wifi",
@@ -111,7 +113,7 @@
   "showWorkspaceApps": true,
   "maxWorkspaceIcons": 3,
   "groupWorkspaceApps": true,
-  "workspaceFollowFocus": false,
+  "workspaceFollowFocus": true,
   "showOccupiedWorkspacesOnly": false,
   "reverseScrolling": false,
   "dwlShowAllTags": false,
@@ -171,8 +173,8 @@
   "niriOverviewOverlayEnabled": true,
   "useAutoLocation": true,
   "weatherEnabled": true,
-  "networkPreference": "auto",
-  "vpnLastConnected": "cce96494-e9ad-44f3-bb71-fe1eb703d9d7",
+  "networkPreference": "wifi",
+  "vpnLastConnected": "c542bf19-e740-4838-8951-29497ce44375",
   "iconTheme": "System Default",
   "cursorSettings": {
     "theme": "breeze_cursors",
@@ -514,7 +516,7 @@
       "id": "dw_1768416452365_gwcfvdk96",
       "widgetType": "systemMonitor",
       "name": "System Monitor",
-      "enabled": true,
+      "enabled": false,
       "config": {
         "showHeader": true,
         "transparency": 0.8,
@@ -541,16 +543,16 @@
       },
       "positions": {
         "DP-2": {
-          "width": 320,
-          "height": 480,
-          "x": 1760,
-          "y": 840
+          "width": 1067.12109375,
+          "height": 681.08984375,
+          "x": 31.68359375,
+          "y": 25.94921875
         },
         "HDMI-A-1": {
-          "width": 711.83203125,
+          "width": 710.046875,
           "height": 491.5234375,
-          "x": 19.89453125,
-          "y": 15.42578125
+          "x": 19.1328125,
+          "y": 16.66015625
         }
       }
     },

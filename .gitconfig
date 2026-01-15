@@ -63,3 +63,5 @@
   key = Change-Id
 [color]
   ui = auto
+[coderabbit]
+  machineId = cli/6d6dc78d3989407093536cffb766e0a7

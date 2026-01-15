@@ -3,6 +3,7 @@
 const self_path = (path self)
 let dest_dir = '~/dotfiles' | path expand
 let sources = [
+  .agents
   .bashrc
   .bash_aliases
   .bash_profile
@@ -40,6 +41,7 @@ let sources = [
   .config/chrome-flags.conf
   .config/chromium-flags.conf
   .config/electron-flags.conf
+  .config/opencode/opencode.json
   .config/JetBrains/IdeaIC2025.2/idea64.vmoptions
 ]
 
