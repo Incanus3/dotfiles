@@ -547,10 +547,35 @@
           "y": 840
         },
         "HDMI-A-1": {
-          "width": 320,
-          "height": 480,
-          "x": 800,
-          "y": 300
+          "width": 711.83203125,
+          "height": 491.5234375,
+          "x": 19.89453125,
+          "y": 15.42578125
+        }
+      }
+    },
+    {
+      "id": "dw_1768506730305_85xx9nqd4",
+      "widgetType": "dankDesktopWeather",
+      "name": "Dank Desktop Weather",
+      "enabled": false,
+      "config": {
+        "displayPreferences": [
+          "all"
+        ]
+      },
+      "positions": {
+        "DP-2": {
+          "width": 200,
+          "height": 200,
+          "x": 1820,
+          "y": 980
+        },
+        "HDMI-A-1": {
+          "width": 290.96484375,
+          "height": 204.671875,
+          "x": 1264.97265625,
+          "y": 403.34765625
         }
       }
     }

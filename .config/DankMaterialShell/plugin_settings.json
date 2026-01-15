@@ -4,5 +4,14 @@
   },
   "grimblast": {
     "enabled": true
+  },
+  "wallpaperDiscovery": {
+    "enabled": true
+  },
+  "dankLauncherKeys": {
+    "enabled": true
+  },
+  "powerUsagePlugin": {
+    "enabled": true
   }
 }

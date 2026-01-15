@@ -32,13 +32,20 @@
   conflictstyle = zdiff3
 [pull]
   ff = only
-; [commit]
-;   gpgsign = true
+[commit]
+  ; gpgsign = true
 [checkout]
   defaultRemote = origin
 [core]
+  ; pager = less -MRFX
   pager = delta
   excludesFile = ~/.gitignore
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  dark = true      # or light = true, or omit for auto-detection
+  line-numbers = true
 [init]
   defaultBranch = main
 [protocol "file"]
@@ -56,9 +63,3 @@
   key = Change-Id
 [color]
   ui = auto
-[interactive]
-  diffFilter = delta --color-only
-[delta]
-  navigate = true  # use n and N to move between diff sections
-  dark = true      # or light = true, or omit for auto-detection
-  line-numbers = true

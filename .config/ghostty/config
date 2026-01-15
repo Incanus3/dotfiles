@@ -442,7 +442,8 @@ freetype-load-flags = hinting,no-force-autohint,no-monochrome,autohint
 #
 # There are some known bugs with light/dark mode theming. These will
 # be fixed in a future update:
-theme = Brogrammer
+# theme = Brogrammer
+theme = dankcolors
 
 # Background color for the window.
 # Specified as either hex (`#RRGGBB` or `RRGGBB`) or a named X11 color.

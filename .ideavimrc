@@ -1,76 +1,32 @@
-""" Plugins  --------------------------------
-set surround
-set nerdtree
-set peekaboo
-set which-key
-set multicursor
-" set multiple-cursors
-set commentary
-set quickscope
-" set argtextobj
-" set easymotion
-set highlightedyank
-set functiontextobj
-" set textobj-entire
-" set ReplaceWithRegister
-
-""" Plugin settings -------------------------
-let g:argtextobj_pairs="[:],(:),<:>"
-
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-""" Common settings -------------------------
+set scrolloff=3
 set showmode
 set showcmd
-set scrolloff=3
+set commentary
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set nu
-
+set ideajoin
+set ideamarks
+set surround
+set nerdtree
+set which-key
+set textobj-entire
+set peekaboo
+set quickscope
+set multicursor
+set highlightedyank
+set functiontextobj
 set clipboard+=unnamed
 set clipboard+=unnamedplus
 
-""" Idea specific settings ------------------
-set ideajoin
-set ideamarks
-set ideastatusicon=gray
-" set idearefactormode=keep
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-""" Map leader to space ---------------------
-" map , (reverse of ;) to \
 noremap \ ,
-" use , as <Leader>
-let mapleader=','
+let mapleader = ","
 
 " make Y behave consistently with D and C
 noremap Y y$
-
-" use ,n to hide search results
-map <leader>n :nohl<cr>
-
-map <leader>i <Action>(ReformatCode)
-map <leader>e <Action>(ShowErrorDescription)
-nmap <leader>T <Action>(ActivateTerminalToolWindow)
-nmap <leader>r <Action>(Run)
-nmap <leader>d <Action>(Debug)
-nmap <leader>t <Action>(RerunTests)
-map <leader>r <Action>(RenameElement)
-map <leader>b <Action>(ToggleLineBreakpoint)
-
-" map <leader>c <Action>(Stop)
-" map <leader>z <Action>(ToggleDistractionFreeMode)
-
-" map <leader>s <Action>(SelectInProjectView)
-" map <leader>a <Action>(Annotate)
-" map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
-" map <S-Space> <Action>(GotoNextError)
-
-" map <leader>o <Action>(FileStructurePopup)
-
-nnoremap [m <Action>(MethodUp)
-nnoremap ]m <Action>(MethodDown)
 
 " use enter in normal mode to insert newline
 nnoremap <CR> o<Esc>k
@@ -81,6 +37,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" use alt + hjkl to move between splits
 nnoremap <M-J> <C-W><C-J>
 nnoremap <M-K> <C-W><C-K>
 nnoremap <M-L> <C-W><C-L>
@@ -89,5 +46,12 @@ nnoremap <M-H> <C-W><C-H>
 map <C-o> <Action>(Back)
 map <C-i> <Action>(Forward)
 
+map <Leader>n :nohl<cr>
+
+map <Leader>e <Action>(ShowErrorDescription)
+
 nmap zC :action CollapseRegionRecursively<CR>
 nmap zO :action ExpandRegionRecursively<CR>
+
+nnoremap [[ <Action>(MethodUp)
+nnoremap ]] <Action>(MethodDown)
