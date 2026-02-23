@@ -2,15 +2,8 @@
 name: beads
 description: >
   Git-backed issue tracker for multi-session work with dependencies and persistent
-  memory across conversation compaction. PROACTIVELY SUGGEST using beads when:
-  (1) user mentions work spanning multiple days/sessions, (2) tasks have dependencies
-  or blockers, (3) exploratory/research work with unclear scope, (4) user says "track this",
-  "remember this", "come back to this later". At session start, check `bd ready` and inform
-  user of available unblocked work, then ASK what they'd like to focus on. When working on
-  a bead: ALWAYS (1) run `bd show <id>` for context, (2) mark as in_progress with
-  `bd update <id> --status in_progress`, (3) add notes during work, (4) close with
-  `bd close <id> --reason "..."` when complete. At session end, suggest `bd sync` to
-  persist changes to git.
+  memory across conversation compaction. Use when work spans sessions, has blockers,
+  or needs context recovery after compaction.
 allowed-tools: "Read,Bash(bd:*)"
 version: "0.47.1"
 author: "Steve Yegge <https://github.com/steveyegge>"
@@ -60,16 +53,16 @@ bd --version  # Requires v0.47.0+
 **Run `bd prime`** for AI-optimized workflow context (auto-loaded by hooks).
 **Run `bd <command> --help`** for specific command usage.
 
-Essential commands: `bd ready`, `bd create`, `bd show`, `bd update`, `bd close`, `bd sync`
+Essential commands: `bd ready`, `bd create`, `bd show`, `bd update`, `bd close`, `bd dolt push`
 
 ## Session Protocol
 
 1. `bd ready` — Find unblocked work
 2. `bd show <id>` — Get full context
-3. `bd update <id> --status in_progress` — Start work
+3. `bd update <id> --claim` — Claim and start work atomically
 4. Add notes as you work (critical for compaction survival)
 5. `bd close <id> --reason "..."` — Complete task
-6. `bd sync` — Persist to git (always run at session end)
+6. `bd dolt push` — Push to Dolt remote (if configured)
 
 ## Advanced Features
 

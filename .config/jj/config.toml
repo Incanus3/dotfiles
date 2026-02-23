@@ -22,6 +22,7 @@ log = "interesting_diversion()"
 bookmark_list = "bookmark_nice()"
 
 [aliases]
+df = ["diff"]
 gp = ["git", "push"]
 gf = ["git", "fetch"]
 bm = ["bookmark", "move"]

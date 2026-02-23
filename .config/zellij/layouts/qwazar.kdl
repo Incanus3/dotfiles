@@ -13,8 +13,20 @@ layout {
   }
 
   tab name="git" split_direction="vertical" {
+    pane {
+      // command "jj"
+    }
     pane
-    pane
+  }
+  tab name="beads" split_direction="vertical" {
+    pane {
+      command "perles"
+    }
+  }
+  tab name="agent" split_direction="vertical" {
+    pane {
+      command "auggie"
+    }
   }
   tab name="console" split_direction="vertical" {
     pane

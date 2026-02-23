@@ -32,3 +32,5 @@ if status is-interactive # Commands to run in interactive sessions can go here
     alias cat bat
     alias man batman
 end
+
+/home/jakub/.local/bin/mise activate fish | source # added by https://mise.run/fish

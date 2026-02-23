@@ -5,16 +5,34 @@
 ---@type LazySpec
 return {
   {
-    -- Your other plugins here
-    "augmentcode/augment.vim",
-    config = function(_plugin, _opts) vim.g.augment_workspace_folders = { "~/Projects" } end,
-    -- mappings = {
-    --   i = {
-    --     ["<c-space>"] = { "<cmd>call augment#Accept()<cr>", desc = "Accept augment suggestion" },
-    --     ["<cr>"] = { '<cmd>call augment#Accept("\n")<cr>', desc = "Accept augment suggestion" },
-    --   },
-    -- },
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      interactions = {
+        chat = {
+          adapter = "opencode",
+          model = "openrouter/z-ai/glm-5",
+        },
+      },
+      -- NOTE: The log_level is in `opts.opts`
+      opts = {
+        log_level = "DEBUG",
+      },
+    },
   },
+  -- {
+  --   -- Your other plugins here
+  --   "augmentcode/augment.vim",
+  --   config = function(_plugin, _opts) vim.g.augment_workspace_folders = { "~/Projects" } end,
+  --   -- mappings = {
+  --   --   i = {
+  --   --     ["<c-space>"] = { "<cmd>call augment#Accept()<cr>", desc = "Accept augment suggestion" },
+  --   --     ["<cr>"] = { '<cmd>call augment#Accept("\n")<cr>', desc = "Accept augment suggestion" },
+  --   --   },
+  --   -- },
+  -- },
 
   -- == Examples of Adding Plugins ==
 

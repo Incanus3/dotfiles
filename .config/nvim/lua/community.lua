@@ -14,4 +14,5 @@ return {
   { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.completion.blink-cmp" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
+  { import = "astrocommunity.editing-support.codecompanion-nvim" },
 }

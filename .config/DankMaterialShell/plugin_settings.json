@@ -13,5 +13,12 @@
   },
   "powerUsagePlugin": {
     "enabled": true
+  },
+  "dankKDEConnect": {
+    "enabled": true,
+    "selectedDeviceId": "4398fd1902644f75b3caed4e8ffef754"
+  },
+  "dankNotepadModule": {
+    "enabled": true
   }
 }

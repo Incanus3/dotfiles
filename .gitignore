@@ -1,3 +1,4 @@
 *.old
 *.new
+.config/nvim/arms_cache
 .config/illogical-impulse/installed_listfile
